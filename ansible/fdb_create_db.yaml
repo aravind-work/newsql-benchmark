@@ -74,7 +74,7 @@
 
     - name: Change to internal IP
       become: true
-      shell: "/usr/lib/foundationdb/make_public.py -a {{groups['as_private'][0]}}"
+      shell: "python /usr/lib/foundationdb/make_public.py -a {{groups['as_private'][0]}}"
       ignore_errors: true
 
     - name: Configure FDB Config file
@@ -221,7 +221,7 @@
     #      register: result
     #      until: result.stdout.strip() == expected_process_count
 
-    - name: Configure new DB 4
+    - name: DB Status
       become: true
       shell: 'fdbcli --exec "status"'
       register: fdbstatus2

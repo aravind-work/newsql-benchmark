@@ -1,9 +1,9 @@
 [control]
-20.186.91.242
+52.180.155.48
 
 [control_private_ip]
 10.0.1.254
 
 [control_dns]
-uis-dbeval-arsriram-fdb-dn-control-machine.eastus2.cloudapp.azure.com
+uis-dbeval-arsriram-fdb2-dn-control-machine.centralus.cloudapp.azure.com
 

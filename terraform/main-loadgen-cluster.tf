@@ -17,7 +17,7 @@ resource "azurerm_public_ip" "publicip_loadgen_cluster" {
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
   tags                = local.tags
-  zones               = [tostring((count.index % 3) + 1)]
+  #zones               = [tostring((count.index % 3) + 1)]
   sku                 = "Standard"
 }
 resource "local_file" "public_ip_file_loadgen_cluster" {
@@ -75,7 +75,7 @@ resource "azurerm_linux_virtual_machine" "loadgenvm" {
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic_loadgen_cluster.*.id[count.index]]
   size                  = local.loadgencluster["vm_type"]
-  zone                  = tostring(((count.index) % 3) + 1)
+  #zone                  = tostring(((count.index) % 3) + 1)
 
   depends_on = [
     azurerm_network_interface_security_group_association.nic_nsg_assoc_loadgen_cluster

@@ -20,7 +20,7 @@ variable "override_loadgencluster_map" {
 
 locals {
   default_ascluster_map = {
-    "vm_type"         = "Standard_L8s_v2"
+    "vm_type"         = "Standard_L8as_v3"
     "vm_count"        = "0"
     "disks_per_vm"    = "0"
     //"disk_type"       = "StandardSSD_LRS"

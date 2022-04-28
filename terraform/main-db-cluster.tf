@@ -10,6 +10,7 @@
 
 # Create public IPs for Aerospike nodes
 resource "azurerm_public_ip" "publicip_db_cluster" {
+  depends_on = [azurerm_network_interface.nic_db_cluster]
   count               = local.ascluster["vm_count"]
   name                = "${var.prefix}-publicip-db-cluster${count.index}"
   domain_name_label   = "${var.prefix}-dn-db-cluster${count.index}"
@@ -17,7 +18,7 @@ resource "azurerm_public_ip" "publicip_db_cluster" {
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
   tags                = local.tags
-  zones               = [tostring((count.index % 3) + 1)]
+  # zones               = [tostring((count.index % 3) + 1)]
   sku                 = "Standard"
 }
 resource "local_file" "public_ip_file" {
@@ -73,7 +74,7 @@ resource "azurerm_linux_virtual_machine" "aerovm" {
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic_db_cluster.*.id[count.index]]
   size                  = local.ascluster["vm_type"]
-  zone                  = tostring((count.index % 3) + 1)
+  #zone                  = tostring((count.index % 3) + 1)
 
   additional_capabilities {
     ultra_ssd_enabled = var.enable_ultra_ssd
@@ -134,7 +135,7 @@ resource "azurerm_managed_disk" "datadisks" {
   //create_option        = "Copy"
   //source_resource_id   = azurerm_snapshot.snapshots.*.id[count.index]
   tags                 = local.tags
-  zones                = [element(azurerm_linux_virtual_machine.aerovm.*.zone, ceil((count.index + 1) * 1.0 / local.ascluster["disks_per_vm"]) - 1)]
+  #zones                = [element(azurerm_linux_virtual_machine.aerovm.*.zone, ceil((count.index + 1) * 1.0 / local.ascluster["disks_per_vm"]) - 1)]
 }
 
 # Attach disk to VM

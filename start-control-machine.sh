@@ -58,7 +58,7 @@ echo "[on control machine] To start harness, run the following command on the co
 echo "    # this command will produce logs and results in ~/harness/workingDir/ directory"
 echo "    tmux"
 echo "    cd ~/harness ; python3 harness.py"
-echo "    echo \"hit ctrl+b,c to create a new window in tmux\""
+echo "    hit ctrl+b c to create a new window in tmux"
 echo "    tail -f harness.log"
 echo "    # we tar the results to the home directory. use ctrl+b followed by c to create new window in tmux)"
 echo "    tar -cvf ~/harness/workingDir ~/workingDir.tar"

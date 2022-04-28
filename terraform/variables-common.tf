@@ -12,9 +12,10 @@ variable "prefix" {
   type    = string
 }
 
+// See https://github.com/claranet/terraform-azurerm-regions/blob/master/REGIONS.md
 variable "location" {
   type    = string
-  default = "eastus2"
+  default = "centralus" // "eastus2"
 }
 
 variable "private_ip_prefix" {

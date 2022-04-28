@@ -26,6 +26,7 @@ brew upgrade terraform ansible azure-cli gnu-tar
 **Make sure that you are logged into the Adobe San Jose VPN**
 Visit http://sanjose-ssh-out.corp.adobe.com/
 
+**If you are on a different VPN region, add the IP block to variable.dev_ips in the terraform/variables-common.tf**
 *[on local machine]*
 ```shell script
 az login
