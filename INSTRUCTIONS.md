@@ -113,7 +113,7 @@ The tar archive will include the following
 ### Destroy all resources
 *[on control machine]*
 -     export DBEVAL_PREFIX=uis-dbeval-<username>-<dbname>
--     cd ~/terraform; terraform apply -auto-approve -var prefix=$DBEVAL_PREFIX -var 'override_ascluster_map={vm_type="Standard_L8s_v2", vm_count="0", disks_per_vm="0"}' -var 'override_loadgencluster_map={vm_type="Standard_F8s_v2", vm_count="0"}'
+-     cd ~/terraform; terraform apply -auto-approve -var prefix=$DBEVAL_PREFIX -var 'override_ascluster_map={vm_type="Standard_L8s_v3", vm_count="0", disks_per_vm="0"}' -var 'override_loadgencluster_map={vm_type="Standard_F8s_v2", vm_count="0"}'
 *[on local machine]*
 -     export DBEVAL_PREFIX=uis-dbeval-<username>-<dbname>
 -     cd terraform;  terraform destroy -auto-approve -var prefix=$DBEVAL_PREFIX

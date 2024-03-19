@@ -1,10 +1,10 @@
 {
   "3NodeCluster": {
-    "dbNodeType": "Standard_L8s_v2",
+    "dbNodeType": "Standard_L8s_v3",
     "dbNodeCount": 3,
     "ssdType": "local",
     "loadgenNodeType": "Standard_F8s_v2",
-    "loadgenNodeCount": 6,
+    "loadgenNodeCount": 3,
     "loadgenType": "ycsb"
   },
   "5NodeCluster": {
